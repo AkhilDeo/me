@@ -12,8 +12,11 @@ main {
 #header {
   margin-top: 2rem;
   margin-left: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding: 0;
+}
+#header p {
+  margin: 0;
 }
 
 #about {
@@ -135,8 +138,7 @@ main {
 
 .project {
   margin-bottom: 0; /* Remove bottom margin */
-  padding-bottom: 1rem;
-  border-radius: 5px;
+  padding-bottom: 0.5rem;
 }
 
 .project h3 {
