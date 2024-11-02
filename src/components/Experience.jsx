@@ -3,11 +3,12 @@ import React from "react";
 function Experience() {
   const experiences = [
     {
-      title: "AI Research Intern",
+      title: "Software Development Engineering Intern",
       organization: "Amazon",
-      date: "May 2024 - Present",
+      date: "May 2024 - August 2024",
       details: [
-        "Developing novel AI reasoning methods and frameworks in Java to enhance LLM performance for specific problem classes",
+        "Researched & built multi-agent AI frameworks to enhance large language models’ performance on advanced reasoning and planning tasks",
+        "Developed Java-based testing framework for low-latency, asynchronous problem execution utilizing distributed systems"
       ],
     },
     {

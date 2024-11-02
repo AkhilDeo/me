@@ -1,9 +1,16 @@
 import React from "react";
 
-function Project({ title, organization, date, details }) {
+function Project({ title, organization, advisor, date, details, isLast }) {
   return (
     <div className="project">
-      <h3>{title}</h3>
+      <h3>
+        {title}{" "}
+        {advisor && (
+          <span style={{ fontSize: "0.85em", fontStyle: "italic", fontWeight: "normal", color: "black" }}>
+            (Advisor: {advisor})
+          </span>
+        )}
+      </h3>
       <div className="project-info">
         <p>
           <i>{organization}</i>
@@ -15,12 +22,24 @@ function Project({ title, organization, date, details }) {
           <li key={index}>{detail}</li>
         ))}
       </ul>
+      {/* Add a break except for the last project */}
+      {!isLast && <br />}
     </div>
   );
 }
 
 function Projects() {
   const projects = [
+    {
+      title: "Transparent Reasoning with Large Language Models",
+      organization: "Johns Hopkins Center for Language and Speech Processing",
+      advisor: "Dr. Benjamin Van Durme",
+      date: "October 2024 – Present",
+      details: [
+        "Researching entailment tree generation by leveraging informal logic and uncertainty representation to improve text understanding",
+        "Investigating fine-tuning approaches for large language models (LLMs) to produce uncertainty-calibrated entailment judgements",
+      ],
+    },
     {
       title: "Nuss Bar",
       organization:
@@ -30,6 +49,7 @@ function Projects() {
         "Creating desktop planning and visualization app to aid clinicians in shaping bar for Nuss Procedure, used to correct Pectus Excavatum",
         "Conceiving user study comparing efficacy of Nuss bar prototypes shown in augmented reality vs. 3D printed bars",
       ],
+      advisor: "Dr. Peter Kazanzides",
     },
     {
       title: "SurgiSimulate",
@@ -42,6 +62,7 @@ function Projects() {
         "Designed and ran a user study with 16 participants to compare performance of mobile app with existing input devices",
         "Presented research at the Hamlyn Symposium on Medical Robotics",
       ],
+      advisor: "Dr. Peter Kazanzides",
     },
   ];
 
@@ -49,7 +70,11 @@ function Projects() {
     <section id="projects">
       <h2>Projects</h2>
       {projects.map((project, index) => (
-        <Project key={index} {...project} />
+        <Project 
+          key={index} 
+          {...project} 
+          isLast={index === projects.length - 1} // Pass isLast as true for the last project
+        />
       ))}
     </section>
   );

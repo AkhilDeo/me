@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 
-function Publication({ authors, title, details, tags, bibtex }) {
+function Publication({ authors, title, details, tags, bibtex, url }) {
   const [showBibtex, setShowBibtex] = useState(false);
 
   return (
     <div className="publication">
       <p className="publication-title">
-        <a href="http://doi.org/10.31256/HSMR2023.63" target="_">
-          {title}
-        </a>
+        {url ? (
+          <a href={url} target="_">
+            {title}
+          </a>
+        ) : (
+          <span>{title}</span>
+        )}
         <span className="publication-tag">Proceedings Article</span>
       </p>
       <p className="publication-authors">{authors}</p>
-
       <p className="publication-details">{details}</p>
       <a
         href="#"
@@ -36,9 +39,26 @@ function Publication({ authors, title, details, tags, bibtex }) {
 function Publications() {
   const publications = [
     {
-      authors: "Deo, Akhil; Kazanzides, Peter",
+      authors: "Deo, Akhil",
       title:
-        "Feasibility of Mobile Application for Surgical Robot Teleoperation",
+        "QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode",
+      details:
+        "In: Proceedings of the AAAI Conference on Artificial Intelligence, 2025. (Accepted for Publication)",
+      bibtex: `@inproceedings{Deo2025,
+        series = {AAAI2025},
+        title = {QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode},
+        journal = {Proceedings of the AAAI Conference on Artificial Intelligence},
+        publisher = {Association for the Advancement of Artificial Intelligence (AAAI)},
+        author = {Deo, Akhil},
+        year = {2025},
+        month = feb,
+        note = {accepted for publication}
+      }`,
+      // No URL for this publication
+    },
+    {
+      authors: "Deo, Akhil; Kazanzides, Peter",
+      title: "Feasibility of Mobile Application for Surgical Robot Teleoperation",
       details: "In: Hamlyn Symposium on Medical Robotics, pp. 121-122, 2023.",
       bibtex: `@inproceedings{Deo2023,
         series = {HSMR2023},
@@ -52,6 +72,7 @@ function Publications() {
         month = jun,
         collection = {HSMR2023}
       }`,
+      url: "http://doi.org/10.31256/HSMR2023.63",
     },
   ];
 
