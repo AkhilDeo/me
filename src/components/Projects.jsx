@@ -36,8 +36,9 @@ function Projects() {
       advisor: "Dr. Benjamin Van Durme",
       date: "October 2024 – Present",
       details: [
-        "Researching entailment tree generation by leveraging informal logic and uncertainty representation to improve text understanding",
-        "Investigating fine-tuning approaches for large language models (LLMs) to produce uncertainty-calibrated entailment judgements",
+        "Researching social natural language inference (NLI) to improve how LLMs interpret elements like sarcasm, humor and irony.",
+        "Developing taxonomy of language model failure modes on dialogue-centric data, with Python and LangChain.",
+        "Leveraging SFT and RLFT to improve language models' abilities to create uncertainty-calibrated entailment judgements",
       ],
     },
     {
