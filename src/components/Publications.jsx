@@ -41,20 +41,21 @@ function Publications() {
     {
       authors: "Deo, Akhil",
       title:
-        "QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode",
+        "QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode (Student Abstract)",
       details:
-        "In: Proceedings of the AAAI Conference on Artificial Intelligence, 2025. (Accepted for Publication)",
-      bibtex: `@inproceedings{Deo2025,
-        series = {AAAI2025},
-        title = {QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode},
-        journal = {Proceedings of the AAAI Conference on Artificial Intelligence},
-        publisher = {Association for the Advancement of Artificial Intelligence (AAAI)},
-        author = {Deo, Akhil},
-        year = {2025},
-        month = feb,
-        note = {accepted for publication}
+        "In: Proceedings of the AAAI Conference on Artificial Intelligence, 2025.",
+      bibtex: `@article{Deo_2025, 
+        title={QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode (Student Abstract)}, 
+        volume={39}, 
+        url={https://ojs.aaai.org/index.php/AAAI/article/view/35246},
+        DOI={10.1609/aaai.v39i28.35246},
+        number={28}, 
+        journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+        author={Deo, Akhil},
+        year={2025}, month={Apr.}, 
+        pages={29345-29347} 
       }`,
-      // No URL for this publication
+      url: "https://doi.org/10.1609/aaai.v39i28.35246"
     },
     {
       authors: "Deo, Akhil; Kazanzides, Peter",
