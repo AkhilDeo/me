@@ -11,6 +11,8 @@ function Header() {
       <a href="https://www.github.com/akhildeo">GitHub</a>
       <br></br>
       <a href="https://www.linkedin.com/in/akhildeo">LinkedIn</a>
+      <br></br>
+      <a href="https://x.com/akhil_deo1">X</a>
     </header>
   );
 }

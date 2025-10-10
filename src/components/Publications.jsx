@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Publication({ authors, title, details, tags, bibtex, url }) {
+function Publication({ authors, title, details, tags, bibtex, url, type }) {
   const [showBibtex, setShowBibtex] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ function Publication({ authors, title, details, tags, bibtex, url }) {
         ) : (
           <span>{title}</span>
         )}
-        <span className="publication-tag">Proceedings Article</span>
+        <span className="publication-tag">{type || "Proceedings Article"}</span>
       </p>
       <p className="publication-authors">{authors}</p>
       <p className="publication-details">{details}</p>
@@ -39,11 +39,28 @@ function Publication({ authors, title, details, tags, bibtex, url }) {
 function Publications() {
   const publications = [
     {
+      authors: "Deo, Akhil; Sanders, Kate; Van Durme, Benjamin",
+      title: "SocialNLI: A Dialogue-Centric Social Inference Dataset",
+      details: "In: arXiv, 2025.",
+      type: "Preprint",
+      bibtex: `@misc{deo2025socialnlidialoguecentricsocialinference,
+      title={SocialNLI: A Dialogue-Centric Social Inference Dataset}, 
+      author={Akhil Deo and Kate Sanders and Benjamin Van Durme},
+      year={2025},
+      eprint={2510.05458},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2510.05458}, 
+}`,
+      url: "https://arxiv.org/abs/2510.05458",
+    },
+    {
       authors: "Deo, Akhil",
       title:
         "QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode (Student Abstract)",
       details:
         "In: Proceedings of the AAAI Conference on Artificial Intelligence, 2025.",
+      type: "Proceedings Article",
       bibtex: `@article{Deo_2025, 
         title={QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode (Student Abstract)}, 
         volume={39}, 
@@ -61,6 +78,7 @@ function Publications() {
       authors: "Deo, Akhil; Kazanzides, Peter",
       title: "Feasibility of Mobile Application for Surgical Robot Teleoperation",
       details: "In: Hamlyn Symposium on Medical Robotics, pp. 121-122, 2023.",
+      type: "Proceedings Article",
       bibtex: `@inproceedings{Deo2023,
         series = {HSMR2023},
         title = {Feasibility of Mobile Application for Surgical Robot Teleoperation},

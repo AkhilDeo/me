@@ -33,24 +33,26 @@ function Projects() {
     {
       title: "Transparent Reasoning with Large Language Models",
       organization: "Johns Hopkins Center for Language and Speech Processing",
-      advisor: "Dr. Benjamin Van Durme",
+      advisor: "Benjamin Van Durme",
       date: "October 2024 – Present",
       details: [
-        "Researching social natural language inference (NLI) to improve how LLMs interpret elements like sarcasm, humor and irony.",
-        "Developing taxonomy of language model failure modes on dialogue-centric data, with Python and LangChain.",
-        "Leveraging SFT and RLFT to improve language models' abilities to create uncertainty-calibrated entailment judgements",
+        "Researched social natural language inference (NLI) to improve how LLMs interpret elements like sarcasm, humor and irony.",
+        "Created SocialNLI , the first dialogue-centric social-inference dataset, comprising 243 Friends TV transcripts, 5.3K generated inferences, and a 1.4K human-annotated eval split - grounding theory-of-mind reasoning in sarcasm and irony.",
+        "Developed efficient counterfactual-reasoning pipeline to assign calibrated plausibility scores to social inferences, surfacing latent LLM failure modes in social reasoning, using PyTorch, vLLM, Huggingface, and Langchain.",
+        "Constructed taxonomy of language model failure modes on dialogue-centric data, with Python and LangChain.",
+        "Leveraging token-level and rubric-based rewards to enhance reasoning processes in LLMs using reinforcement learning. More on this coming soon."
       ],
     },
     {
       title: "Nuss Bar",
       organization:
         "Johns Hopkins Laboratory for Computational Sensing and Robotics",
-      date: "February 2024 - Present",
+      date: "February 2024 - July 2024",
       details: [
         "Creating desktop planning and visualization app to aid clinicians in shaping bar for Nuss Procedure, used to correct Pectus Excavatum",
         "Conceiving user study comparing efficacy of Nuss bar prototypes shown in augmented reality vs. 3D printed bars",
       ],
-      advisor: "Dr. Peter Kazanzides",
+      advisor: "Peter Kazanzides",
     },
     {
       title: "SurgiSimulate",
@@ -71,9 +73,9 @@ function Projects() {
     <section id="projects">
       <h2>Projects</h2>
       {projects.map((project, index) => (
-        <Project 
-          key={index} 
-          {...project} 
+        <Project
+          key={index}
+          {...project}
           isLast={index === projects.length - 1} // Pass isLast as true for the last project
         />
       ))}
