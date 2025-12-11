@@ -1,7 +1,14 @@
-import React from "react";
+import styles from "./landing.module.css";
 
-function Experience() {
-  const experiences = [
+type ExperienceItem = {
+  title: string;
+  organization: string;
+  date: string;
+  details: string[];
+};
+
+export function Experience() {
+  const experiences: ExperienceItem[] = [
     {
       title: "Software Development Engineering Intern",
       organization: "Amazon Web Services",
@@ -45,30 +52,30 @@ function Experience() {
         "Improved API performance, reducing latency by ∼100ms per API call, leveraging Java, Spring Boot, and SQL.",
       ],
     },
-    // Add other work experiences similarly
   ];
 
   return (
-    <div id="experience">
+    <section className={styles.section}>
       <h2>Work Experience</h2>
-      {experiences.map((experience, index) => (
-        <div className="experience" key={index}>
+      {experiences.map((experience) => (
+        <div
+          className={styles.experience}
+          key={`${experience.title}-${experience.organization}`}
+        >
           <h3>{experience.title}</h3>
-          <div className="experience-info">
+          <div className={styles.infoRow}>
             <p>
               <i>{experience.organization}</i>
             </p>
             <p>{experience.date}</p>
           </div>
-          <ul>
-            {experience.details.map((detail, index) => (
-              <li key={index}>{detail}</li>
+          <ul className={styles.list}>
+            {experience.details.map((detail) => (
+              <li key={detail}>{detail}</li>
             ))}
           </ul>
         </div>
       ))}
-    </div>
+    </section>
   );
 }
-
-export default Experience;

@@ -1,25 +1,39 @@
-import React, { useState } from "react";
+'use client';
 
-function Publication({ authors, title, details, tags, bibtex, url, type }) {
+import Link from "next/link";
+import { useState } from "react";
+import styles from "./landing.module.css";
+
+type Publication = {
+  authors: string;
+  title: string;
+  details: string;
+  tags?: string[];
+  bibtex: string;
+  url?: string;
+  type?: string;
+};
+
+function PublicationItem({ authors, title, details, bibtex, url, type }: Publication) {
   const [showBibtex, setShowBibtex] = useState(false);
 
   return (
-    <div className="publication">
-      <p className="publication-title">
+    <div className={styles.publication}>
+      <p className={styles.publicationTitle}>
         {url ? (
-          <a href={url} target="_">
+          <Link href={url} target="_blank">
             {title}
-          </a>
+          </Link>
         ) : (
           <span>{title}</span>
         )}
-        <span className="publication-tag">{type || "Proceedings Article"}</span>
+        <span className={styles.publicationTag}>{type || "Proceedings Article"}</span>
       </p>
-      <p className="publication-authors">{authors}</p>
-      <p className="publication-details">{details}</p>
+      <p className={styles.publicationAuthors}>{authors}</p>
+      <p className={styles.publicationDetails}>{details}</p>
       <a
         href="#"
-        className="bibtex-toggle"
+        className={styles.bibtexToggle}
         onClick={(e) => {
           e.preventDefault();
           setShowBibtex(!showBibtex);
@@ -28,7 +42,7 @@ function Publication({ authors, title, details, tags, bibtex, url, type }) {
         BibTeX
       </a>
       {showBibtex && (
-        <div className="bibtex-content">
+        <div className={styles.bibtexContent}>
           <pre>{bibtex}</pre>
         </div>
       )}
@@ -36,21 +50,21 @@ function Publication({ authors, title, details, tags, bibtex, url, type }) {
   );
 }
 
-function Publications() {
-  const publications = [
+export function Publications() {
+  const publications: Publication[] = [
     {
       authors: "Deo, Akhil; Sanders, Kate; Van Durme, Benjamin",
       title: "SocialNLI: A Dialogue-Centric Social Inference Dataset",
       details: "In: arXiv, 2025.",
       type: "Preprint",
       bibtex: `@misc{deo2025socialnlidialoguecentricsocialinference,
-      title={SocialNLI: A Dialogue-Centric Social Inference Dataset}, 
+      title={SocialNLI: A Dialogue-Centric Social Inference Dataset},
       author={Akhil Deo and Kate Sanders and Benjamin Van Durme},
       year={2025},
       eprint={2510.05458},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2510.05458}, 
+      url={https://arxiv.org/abs/2510.05458},
 }`,
       url: "https://arxiv.org/abs/2510.05458",
     },
@@ -61,18 +75,18 @@ function Publications() {
       details:
         "In: Proceedings of the AAAI Conference on Artificial Intelligence, 2025.",
       type: "Proceedings Article",
-      bibtex: `@article{Deo_2025, 
-        title={QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode (Student Abstract)}, 
-        volume={39}, 
+      bibtex: `@article{Deo_2025,
+        title={QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode (Student Abstract)},
+        volume={39},
         url={https://ojs.aaai.org/index.php/AAAI/article/view/35246},
         DOI={10.1609/aaai.v39i28.35246},
-        number={28}, 
+        number={28},
         journal={Proceedings of the AAAI Conference on Artificial Intelligence},
         author={Deo, Akhil},
-        year={2025}, month={Apr.}, 
-        pages={29345-29347} 
+        year={2025}, month={Apr.},
+        pages={29345-29347}
       }`,
-      url: "https://doi.org/10.1609/aaai.v39i28.35246"
+      url: "https://doi.org/10.1609/aaai.v39i28.35246",
     },
     {
       authors: "Deo, Akhil; Kazanzides, Peter",
@@ -96,13 +110,11 @@ function Publications() {
   ];
 
   return (
-    <section id="publications">
+    <section className={styles.section}>
       <h2>Publications</h2>
-      {publications.map((pub, index) => (
-        <Publication key={index} {...pub} />
+      {publications.map((pub) => (
+        <PublicationItem key={pub.title} {...pub} />
       ))}
     </section>
   );
 }
-
-export default Publications;
