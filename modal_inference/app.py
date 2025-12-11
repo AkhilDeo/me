@@ -218,7 +218,6 @@ def run_safety_checks_parallel(input_text: str) -> tuple[bool, str]:
     container_idle_timeout=120,  # Keep warm briefly; rely on fast cold starts instead
     volumes={"/cache": model_cache_volume},  # Mount volume for model caching
     allow_concurrent_inputs=10,
-    keep_warm=1,
     # Use the smallest instance size to minimize cost
     memory=4096,
 )
