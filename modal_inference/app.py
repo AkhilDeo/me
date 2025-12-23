@@ -213,7 +213,7 @@ def run_safety_checks_parallel(input_text: str) -> tuple[bool, str]:
 
 @app.cls(
     image=image,
-    gpu="L40S",  # L40S has better FlashAttention support than T4
+    gpu="L40S",  # L40S has better FlashAttention support than T4 
     timeout=120,
     container_idle_timeout=120,  # Keep warm briefly; rely on fast cold starts instead
     volumes={"/cache": model_cache_volume},  # Mount volume for model caching
