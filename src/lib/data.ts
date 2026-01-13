@@ -1,6 +1,46 @@
 // Portfolio data - migrated from original site
 
-export const personalInfo = {
+// Types
+export interface Project {
+    id: string
+    title: string
+    organization: string
+    advisor: string
+    date: string
+    details: string[]
+    tags: string[]
+}
+
+export interface Experience {
+    id: string
+    title: string
+    organization: string
+    date: string
+    details: string[]
+    tags: string[]
+}
+
+export interface Publication {
+    id: string
+    authors: string
+    title: string
+    details: string
+    type: string
+    url: string
+    bibtex: string
+}
+
+export interface PersonalInfo {
+    name: string
+    email: string
+    github: string
+    linkedin: string
+    twitter: string
+    avatar: string
+    bio: string
+}
+
+export const personalInfo: PersonalInfo = {
     name: "Akhil Deo",
     email: "adeo1[at]jhu[dot]edu",
     github: "https://www.github.com/akhildeo",
@@ -10,7 +50,7 @@ export const personalInfo = {
     bio: `I am currently a student researcher at the Johns Hopkins Center for Language and Speech Processing working on LM reasoning, as well as a computer science student at Johns Hopkins University with a focus on Natural Language Processing, Artificial Intelligence, and Machine Learning.`,
 };
 
-export const projects = [
+export const projects: Project[] = [
     {
         id: "transparent-reasoning",
         title: "Transparent Reasoning with Large Language Models",
@@ -54,7 +94,7 @@ export const projects = [
     },
 ];
 
-export const experiences = [
+export const experiences: Experience[] = [
     {
         id: "aws-2025",
         title: "Software Development Engineering Intern",
@@ -110,7 +150,7 @@ export const experiences = [
     },
 ];
 
-export const publications = [
+export const publications: Publication[] = [
     {
         id: "socialnli",
         authors: "Deo, Akhil; Sanders, Kate; Van Durme, Benjamin",
@@ -175,50 +215,4 @@ export const achievements = [
     "JHU Whiting School of Engineering Undergraduate Conference Travel Grant",
     "JHU Student Sponsorship Initiative Award",
     "Ongoing Venture Prize and Most Creative Use of Twilio at HopHacks Fall 2021",
-];
-
-// File tree structure for IDE sidebar
-export const fileTree = [
-    {
-        name: "about.md",
-        type: "file" as const,
-        icon: "file-text",
-        path: "/about",
-    },
-    {
-        name: "projects",
-        type: "folder" as const,
-        icon: "folder",
-        path: "/projects",
-        children: projects.map((p) => ({
-            name: `${p.id}.md`,
-            type: "file" as const,
-            icon: "file-code",
-            path: `/projects/${p.id}`,
-        })),
-    },
-    {
-        name: "experience",
-        type: "folder" as const,
-        icon: "folder",
-        path: "/experience",
-        children: experiences.map((e) => ({
-            name: `${e.id}.md`,
-            type: "file" as const,
-            icon: "file-text",
-            path: `/experience/${e.id}`,
-        })),
-    },
-    {
-        name: "publications.md",
-        type: "file" as const,
-        icon: "file-text",
-        path: "/publications",
-    },
-    {
-        name: "achievements.md",
-        type: "file" as const,
-        icon: "trophy",
-        path: "/achievements",
-    },
 ];

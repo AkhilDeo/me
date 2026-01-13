@@ -1,33 +1,36 @@
-import Link from "next/link";
-import { Achievements } from "@/components/landing/achievements";
-import { LandingAbout } from "@/components/landing/about";
-import { Experience } from "@/components/landing/experience";
-import { LandingHeader } from "@/components/landing/header";
-import { Projects } from "@/components/landing/projects";
-import { Publications } from "@/components/landing/publications";
-import styles from "@/components/landing/landing.module.css";
+'use client'
+
+import { Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { GraphCanvas } from '@/components/graph/graph-canvas'
+import { StoryMode } from '@/components/graph/story-mode'
+
+function HomeContent() {
+  const searchParams = useSearchParams()
+  const isStoryMode = searchParams.get('mode') === 'story'
+
+  if (isStoryMode) {
+    return <StoryMode />
+  }
+
+  return <GraphCanvas />
+}
 
 export default function Home() {
   return (
-    <div className={styles.landing}>
-      <Link href="/v2" className={styles.banner}>
-        ✨ Check out v2 of my personal website — a VS Code-inspired experience!
-      </Link>
-      <div className={styles.main}>
-        <LandingHeader />
-        <main>
-          <LandingAbout />
-          <Projects />
-          <Experience />
-          <Publications />
-          <Achievements />
-          <div className={styles.ctaRow}>
-            <Link href="/v2" className={styles.ctaButton}>
-              Open v2 / IDE view
-            </Link>
-          </div>
-        </main>
+    <Suspense fallback={<LoadingState />}>
+      <HomeContent />
+    </Suspense>
+  )
+}
+
+function LoadingState() {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-background">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+        <p className="text-sm text-muted-foreground">Loading...</p>
       </div>
     </div>
-  );
+  )
 }
