@@ -151,13 +151,12 @@
   white-space: pre-wrap;
 }
 
-.experience,
+.experienceCard,
 .project {
-  margin-bottom: 1.5rem;
   border-radius: 6px;
 }
 
-.experience h3,
+.experienceCard h3,
 .project h3 {
   margin: 0 0 0.35rem;
   font-size: 1.05rem;
@@ -179,6 +178,48 @@
 .list {
   margin: 0.35rem 0 0;
   padding-left: 1.25rem;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 0.2rem;
+  bottom: 0.2rem;
+  width: 1px;
+  background: #e5e7eb;
+}
+
+.timelineItem {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.timelineMarker {
+  position: absolute;
+  left: 0.1rem;
+  top: 0.45rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 9999px;
+  background: #111827;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(17, 24, 39, 0.15);
+}
+
+.experienceCard {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
 }
 
 .section h2 {

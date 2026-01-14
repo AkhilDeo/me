@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { forwardRef } from 'react'
 import type { CameraState } from './hooks/use-camera'
 
@@ -12,17 +11,15 @@ interface GraphViewportProps {
 export const GraphViewport = forwardRef<HTMLDivElement, GraphViewportProps>(
   function GraphViewport({ camera, children }, ref) {
     return (
-      <motion.div
+      <div
         ref={ref}
         className="absolute origin-top-left will-change-transform"
         style={{
-          x: camera.x,
-          y: camera.y,
-          scale: camera.scale,
+          transform: `translate(${camera.x}px, ${camera.y}px) scale(${camera.scale})`,
         }}
       >
         {children}
-      </motion.div>
+      </div>
     )
   }
 )

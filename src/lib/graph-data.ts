@@ -41,28 +41,28 @@ export const graphNodes: GraphNode[] = [
     type: 'category',
     label: 'Experience',
     sublabel: `${experiences.length} roles`,
-    position: { x: -380, y: -120 }
+    position: { x: -450, y: -140 }
   },
   {
     id: 'projects',
     type: 'category',
     label: 'Research',
     sublabel: `${projects.length} projects`,
-    position: { x: 380, y: -120 }
+    position: { x: 450, y: -140 }
   },
   {
     id: 'publications',
     type: 'category',
     label: 'Publications',
     sublabel: `${publications.length} papers`,
-    position: { x: 0, y: -340 }
+    position: { x: 0, y: -400 }
   },
   {
     id: 'achievements',
     type: 'category',
     label: 'Recognition',
     sublabel: `${achievements.length} awards`,
-    position: { x: 0, y: 320 }
+    position: { x: 0, y: 380 }
   },
 
   // Experience item nodes - fanned out from experience category
@@ -72,8 +72,8 @@ export const graphNodes: GraphNode[] = [
     label: exp.organization,
     sublabel: exp.title,
     position: {
-      x: -650 - (i % 2) * 80,
-      y: -280 + i * 120
+      x: -780 - (i % 2) * 100,
+      y: -340 + i * 140
     },
     data: { source: 'experience' as const, index: i }
   })),
@@ -82,11 +82,11 @@ export const graphNodes: GraphNode[] = [
   ...projects.map((proj, i) => ({
     id: proj.id,
     type: 'item' as NodeType,
-    label: proj.title.length > 25 ? proj.title.slice(0, 22) + '...' : proj.title,
+    label: proj.title.length > 30 ? proj.title.slice(0, 27) + '...' : proj.title,
     sublabel: proj.organization.split(' ').slice(0, 3).join(' '),
     position: {
-      x: 620 + (i % 2) * 80,
-      y: -220 + i * 140
+      x: 720 + (i % 2) * 100,
+      y: -280 + i * 160
     },
     data: { source: 'project' as const, index: i }
   })),
@@ -95,11 +95,11 @@ export const graphNodes: GraphNode[] = [
   ...publications.map((pub, i) => ({
     id: pub.id,
     type: 'item' as NodeType,
-    label: pub.title.length > 30 ? pub.title.slice(0, 27) + '...' : pub.title,
+    label: pub.title.length > 35 ? pub.title.slice(0, 32) + '...' : pub.title,
     sublabel: pub.type,
     position: {
-      x: -280 + i * 280,
-      y: -520
+      x: -340 + i * 340,
+      y: -620
     },
     data: { source: 'publication' as const, index: i }
   }))

@@ -7,16 +7,16 @@ import { cn } from '@/lib/utils'
 export function ModeToggle() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const isStoryMode = searchParams.get('mode') === 'story'
+  const isGraphMode = searchParams.get('mode') === 'graph'
 
   const toggleMode = () => {
-    if (isStoryMode) {
-      // Switch to graph mode
+    if (isGraphMode) {
+      // Switch to normal view
       router.push('/', { scroll: false })
-    } else {
-      // Switch to story mode
-      router.push('/?mode=story', { scroll: false })
+      return
     }
+    // Switch to graph view
+    router.push('/?mode=graph', { scroll: false })
   }
 
   return (
@@ -30,17 +30,17 @@ export function ModeToggle() {
         'transition-colors duration-150',
         'text-sm font-medium',
       )}
-      aria-label={`Switch to ${isStoryMode ? 'graph' : 'story'} mode`}
+      aria-label={`Switch to ${isGraphMode ? 'normal view' : 'graph'} mode`}
     >
-      {isStoryMode ? (
+      {isGraphMode ? (
         <>
-          <Map className="w-4 h-4" />
-          <span className="hidden sm:inline">Graph</span>
+          <ScrollText className="w-4 h-4" />
+          <span className="hidden sm:inline">Normal View</span>
         </>
       ) : (
         <>
-          <ScrollText className="w-4 h-4" />
-          <span className="hidden sm:inline">Story</span>
+          <Map className="w-4 h-4" />
+          <span className="hidden sm:inline">Graph</span>
         </>
       )}
     </button>

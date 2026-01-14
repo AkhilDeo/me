@@ -26,13 +26,13 @@ export const GRID = {
 }
 
 export const NODE = {
-  // Base sizes by type
-  PERSON_SIZE: { width: 200, height: 80 },
-  CATEGORY_SIZE: { width: 140, height: 56 },
-  ITEM_SIZE: { width: 180, height: 64 },
+  // Base sizes by type - larger for better readability
+  PERSON_SIZE: { width: 300, height: 110 },
+  CATEGORY_SIZE: { width: 180, height: 70 },
+  ITEM_SIZE: { width: 280, height: 100 },
 
   // Interaction
-  HOVER_SCALE: 1.02,
+  HOVER_SCALE: 1.03,
   SELECTED_SCALE: 1.0,
 }
 

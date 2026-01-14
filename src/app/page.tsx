@@ -7,13 +7,13 @@ import { StoryMode } from '@/components/graph/story-mode'
 
 function HomeContent() {
   const searchParams = useSearchParams()
-  const isStoryMode = searchParams.get('mode') === 'story'
+  const isGraphMode = searchParams.get('mode') === 'graph'
 
-  if (isStoryMode) {
-    return <StoryMode />
+  if (isGraphMode) {
+    return <GraphCanvas />
   }
 
-  return <GraphCanvas />
+  return <StoryMode />
 }
 
 export default function Home() {

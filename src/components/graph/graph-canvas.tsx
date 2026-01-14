@@ -23,14 +23,27 @@ export function GraphCanvas() {
   const isMobile = useIsMobile()
 
   const selectedNodeId = searchParams.get('node')
+  const buildGraphUrl = useCallback((nodeId?: string | null) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('mode', 'graph')
+    if (nodeId) {
+      params.set('node', nodeId)
+    } else {
+      params.delete('node')
+    }
+    const query = params.toString()
+    return query ? `/?${query}` : '/'
+  }, [searchParams])
 
   const [camera, cameraActions, viewportRef] = useCamera()
 
-  // Set up gesture handlers
-  useGestures(containerRef, {
+  const gestureHandlers = useMemo(() => ({
     onPan: cameraActions.pan,
     onZoom: cameraActions.zoom,
-  })
+  }), [cameraActions.pan, cameraActions.zoom])
+
+  // Set up gesture handlers
+  useGestures(containerRef, gestureHandlers)
 
   // Get connected nodes for highlighting
   const connectedNodeIds = useMemo(() => {
@@ -40,13 +53,15 @@ export function GraphCanvas() {
 
   // Handle node selection
   const handleNodeClick = useCallback((nodeId: string) => {
-    router.push(`/?node=${nodeId}`, { scroll: false })
-  }, [router])
+    if (nodeId === selectedNodeId) return
+    router.push(buildGraphUrl(nodeId), { scroll: false })
+  }, [router, selectedNodeId, buildGraphUrl])
 
   // Handle panel close
   const handleClosePanel = useCallback(() => {
-    router.push('/', { scroll: false })
-  }, [router])
+    if (!selectedNodeId) return
+    router.push(buildGraphUrl(null), { scroll: false })
+  }, [router, selectedNodeId, buildGraphUrl])
 
   // Center on selected node when URL changes
   useEffect(() => {
@@ -121,10 +136,11 @@ export function GraphCanvas() {
           />
 
           {/* Nodes */}
-          {graphNodes.map(node => (
+          {graphNodes.map((node, index) => (
             <GraphNode
               key={node.id}
               node={node}
+              index={index}
               isSelected={node.id === selectedNodeId}
               isConnected={connectedNodeIds.includes(node.id)}
               isFaded={selectedNodeId !== null && node.id !== selectedNodeId && !connectedNodeIds.includes(node.id)}
