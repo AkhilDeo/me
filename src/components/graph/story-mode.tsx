@@ -128,58 +128,89 @@ function ProjectCard({
   index: number
 }) {
   const details = project.details.slice(0, 3)
+  const gradients = [
+    'from-blue-500/10 to-purple-500/10',
+    'from-emerald-500/10 to-teal-500/10',
+    'from-orange-500/10 to-pink-500/10',
+    'from-violet-500/10 to-fuchsia-500/10',
+  ]
+  const accentColors = [
+    'border-l-blue-500',
+    'border-l-emerald-500',
+    'border-l-orange-500',
+    'border-l-violet-500',
+  ]
 
   return (
     <motion.article
-      className="relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 shadow-lg md:p-8"
-      initial={{ opacity: 0, y: 40, rotate: index % 2 === 0 ? -1 : 1 }}
-      whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.08 }}
+      className={cn(
+        "group relative overflow-hidden rounded-2xl border border-border/50 bg-card shadow-sm hover:shadow-xl transition-all duration-300",
+        "border-l-4",
+        accentColors[index % accentColors.length]
+      )}
+      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30, y: 20 }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.1 }}
+      whileHover={{ y: -4 }}
     >
-      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        <div>
-          <p className="text-[11px] uppercase tracking-[0.32em] text-muted-foreground/80">
-            Research Track
-          </p>
-          <h3 className="mt-3 text-2xl font-bold leading-tight md:text-3xl">
-            {project.title}
-          </h3>
-          <p className="mt-2 text-sm text-muted-foreground">{project.organization}</p>
-          <p className="mt-2 text-xs text-muted-foreground">Advisor: {project.advisor}</p>
-        </div>
-        <div className="flex items-center gap-4 md:flex-col md:items-end">
-          <Badge variant="outline">{project.date}</Badge>
-          <span className="text-4xl font-bold text-muted-foreground/20">
+      {/* Gradient background accent */}
+      <div className={cn(
+        "absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500",
+        gradients[index % gradients.length]
+      )} />
+      
+      <div className="relative p-6 md:p-7">
+        {/* Header - horizontal layout with index */}
+        <div className="flex items-start gap-4 mb-4">
+          <span className="text-5xl font-black text-muted-foreground/10 leading-none">
             0{index + 1}
           </span>
+          <div className="flex-1 min-w-0">
+            <p className="text-[11px] uppercase tracking-[0.32em] text-muted-foreground/80">
+              Research Track
+            </p>
+            <h3 className="mt-2 text-2xl font-bold leading-tight md:text-3xl">
+              {project.title}
+            </h3>
+          </div>
+          <Badge variant="outline" className="shrink-0 self-start">
+            {project.date}
+          </Badge>
         </div>
-      </div>
 
-      <div className="mt-6 grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
-        <ul className="min-h-[120px] space-y-3 text-sm leading-relaxed text-muted-foreground md:min-h-[144px]">
-          {details.map((detail, j) => (
-            <li key={j} className="flex gap-3">
-              <span className="mt-0.5 shrink-0 text-primary">•</span>
-              <span>{detail}</span>
-            </li>
-          ))}
-        </ul>
+        {/* Organization and Advisor - horizontal */}
+        <div className="flex flex-wrap gap-x-6 gap-y-1 mb-5 text-sm">
+          <p className="text-muted-foreground">{project.organization}</p>
+          <p className="text-muted-foreground">Advisor: {project.advisor}</p>
+        </div>
 
-        <div className="flex min-h-[120px] flex-col rounded-2xl border border-border/60 bg-muted/40 p-5 shadow-inner md:min-h-[144px]">
-          <p className="mb-3 text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
-            Focus
-          </p>
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-2">
-            {project.tags.map((tag) => (
-              <Badge
-                key={tag}
-                variant="secondary"
-                className="justify-center px-2.5 py-1 text-[11px] font-medium"
-              >
-                {tag}
-              </Badge>
+        {/* Content grid - more horizontal */}
+        <div className="grid gap-5 md:grid-cols-[1.5fr_1fr]">
+          <ul className="space-y-2.5 text-sm leading-relaxed text-muted-foreground">
+            {details.map((detail, j) => (
+              <li key={j} className="flex gap-3">
+                <span className="mt-0.5 shrink-0 text-primary">•</span>
+                <span>{detail}</span>
+              </li>
             ))}
+          </ul>
+
+          <div className="flex flex-col rounded-xl border border-border/60 bg-muted/30 p-4">
+            <p className="mb-3 text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
+              Focus
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {project.tags.map((tag) => (
+                <Badge
+                  key={tag}
+                  variant="secondary"
+                  className="px-2.5 py-1 text-[11px] font-medium"
+                >
+                  {tag}
+                </Badge>
+              ))}
+            </div>
           </div>
         </div>
       </div>
