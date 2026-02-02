@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description: "Personal portfolio of Akhil Deo - AI/ML researcher at Johns Hopkins, focusing on LLM reasoning, NLP, and building intelligent systems.",
   keywords: ["AI", "Machine Learning", "NLP", "LLM", "Johns Hopkins", "Software Engineer"],
   authors: [{ name: "Akhil Deo" }],
+  icons: {
+    icon: "/icon.svg",
+  },
   openGraph: {
     title: "Akhil Deo | AI Researcher & Software Engineer",
     description: "Personal portfolio of Akhil Deo - AI/ML researcher at Johns Hopkins",

@@ -1,3 +1,4 @@
+import { achievements } from "@/lib/data";
 import styles from "./landing.module.css";
 
 export function Achievements() {
@@ -5,11 +6,9 @@ export function Achievements() {
     <section className={styles.section}>
       <h2>Achievements</h2>
       <ul className={styles.list}>
-        <li>Pistritto Fellowship</li>
-        <li>Pava Center for Entrepreneurship Ignite Grant</li>
-        <li>JHU Whiting School of Engineering Undergraduate Conference Travel Grant</li>
-        <li>JHU Student Sponsorship Initiative Award</li>
-        <li>Ongoing Venture Prize and Most Creative Use of Twilio at HopHacks Fall 2021</li>
+        {achievements.map((achievement, index) => (
+          <li key={`${achievement}-${index}`}>{achievement}</li>
+        ))}
       </ul>
     </section>
   );
