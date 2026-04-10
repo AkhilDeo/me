@@ -1,0 +1,268 @@
+// Portfolio data - migrated from original site
+
+// Types
+export interface Project {
+    id: string
+    title: string
+    organization: string
+    advisor: string
+    date: string
+    details: string[]
+    tags: string[]
+}
+
+export interface Experience {
+    id: string
+    title: string
+    organization: string
+    date: string
+    details: string[]
+    tags: string[]
+}
+
+export interface Publication {
+    id: string
+    authors: PublicationAuthor[]
+    title: string
+    details: string
+    type: string
+    url: string
+    bibtex: string
+}
+
+export interface PublicationAuthor {
+    name: string
+    isSelf?: boolean
+}
+
+export interface PersonalInfo {
+    name: string
+    email: string
+    github: string
+    linkedin: string
+    twitter: string
+    avatar: string
+    bio: string
+}
+
+export const personalInfo: PersonalInfo = {
+    name: "Akhil Deo",
+    email: "adeo1[at]jhu[dot]edu",
+    github: "https://www.github.com/akhildeo",
+    linkedin: "https://www.linkedin.com/in/akhildeo",
+    twitter: "https://x.com/akhil_deo1",
+    avatar: "/profile.png",
+    bio: `I am a student researcher at the Johns Hopkins Center for Language and Speech Processing focusing on LLM reasoning, and a computer science student at Johns Hopkins University specializing in NLP, AI, and ML.`,
+};
+
+export const projects: Project[] = [
+    {
+        id: "transparent-reasoning",
+        title: "Transparent Reasoning with Large Language Models",
+        organization: "Johns Hopkins Center for Language and Speech Processing",
+        advisor: "Dr. Benjamin Van Durme",
+        date: "September 2024 – Present",
+        details: [
+            "Researched social natural language inference (NLI) to improve how LLMs interpret elements like sarcasm, humor, and irony.",
+            "Created SocialNLI, the first dialogue-centric social-inference dataset, comprising 243 Friends TV transcripts, 5.3K generated inferences, and a 1.4K human-annotated eval split - grounding theory-of-mind reasoning in sarcasm and irony.",
+            "Developed efficient counterfactual-reasoning pipeline to assign calibrated plausibility scores to social inferences, surfacing latent LLM failure modes in social reasoning, using PyTorch, vLLM, Huggingface, and Langchain.",
+            "Constructed taxonomy of language model failure modes on dialogue-centric data.",
+            "Leveraging token-level and rubric-based rewards to enhance reasoning processes in LLMs using reinforcement learning.",
+        ],
+        tags: ["NLP", "LLMs", "PyTorch", "vLLM", "Langchain"],
+    },
+    {
+        id: "nuss-bar",
+        title: "Nuss Bar",
+        organization: "Johns Hopkins Laboratory for Computational Sensing and Robotics",
+        advisor: "Peter Kazanzides",
+        date: "February 2024 - July 2024",
+        details: [
+            "Creating desktop planning and visualization app to aid clinicians in shaping bar for Nuss Procedure, used to correct Pectus Excavatum",
+            "Conceiving user study comparing efficacy of Nuss bar prototypes shown in augmented reality vs. 3D printed bars",
+            "Created an augmented reality workflow to aid clinicians in performing Nuss procedure, potentially impacting 1000+ Pectus Excavatum surgeries annually, using Unity, C#, Python, Slicer3D, and MRTK3.",
+        ],
+        tags: ["Medical Robotics", "AR", "3D Visualization"],
+    },
+    {
+        id: "surgisimulate",
+        title: "SurgiSimulate",
+        organization: "Johns Hopkins Laboratory for Computational Sensing and Robotics",
+        advisor: "Peter Kazanzides",
+        date: "February 2022 - July 2023",
+        details: [
+            "Enabled remote surgical training by turning an iPhone into a hand-held controller for the dVRK surgical robot (Swift/Obj-C and ARKit).",
+            "Constructed a mobile application using Swift and Objective C to control a da Vinci Research Kit (dVRK)",
+            "Leveraged ARKit to capture transformation of mobile devices and ROS and Python for robot control",
+            "Designed and ran a user study with 16 participants to compare performance of mobile app with existing input devices, validating feasibility for mobile teleoperation and remote surgical training.",
+            "Presented research at the Hamlyn Symposium on Medical Robotics",
+        ],
+        tags: ["Swift", "ARKit", "ROS", "Python", "Medical Robotics"],
+    },
+];
+
+export const experiences: Experience[] = [
+    {
+        id: "aws-2025",
+        title: "Software Development Engineering Intern",
+        organization: "Amazon Web Services",
+        date: "May 2025 - August 2025",
+        details: [
+            "Designed and built a recording system capturing user interactions in browser and automatically generates reproducible workflow, improving automation accuracy by 20% and eliminating manual workflow design, using TypeScript and Python.",
+        ],
+        tags: ["TypeScript", "Python", "Automation"],
+    },
+    {
+        id: "scale-ai",
+        title: "Technical Advisor Intern - GenAI",
+        organization: "Scale AI",
+        date: "November 2024 - February 2025",
+        details: [
+            "Solved Olympiad-level competitive programming (CP) problems that only ~25% of competitive programmers can solve, to support training a code-reasoning LLM.",
+            "Crafted specialized prompts enabling LLMs to solve Olympiad-level competitive programming problems.",
+        ],
+        tags: ["GenAI", "Competitive Programming", "LLMs"],
+    },
+    {
+        id: "amazon-agi",
+        title: "Software Development Engineering Intern",
+        organization: "Amazon AGI",
+        date: "May 2024 - August 2024",
+        details: [
+            "Devised and developed multi-agent small language model (SLM) frameworks to enhance LLMs' advanced planning abilities using Amazon Nova and Anthropic Claude. Achieved a 220% increase over baseline on the TravelPlanner dataset.",
+            "Implemented an evaluation pipeline for multi-agent experiments with RxJava and Python, speeding up evaluations by 400%.",
+        ],
+        tags: ["Multi-Agent", "SLMs", "RxJava", "Python"],
+    },
+    {
+        id: "quantable",
+        title: "Founding Engineer",
+        organization: "Quantable.io",
+        date: "December 2023 - July 2024",
+        details: [
+            "Constructed the site's PostgreSQL database schemas and created efficient APIs in Node.js, a custom LaTeX rendering library, admin tools, and production-ready RBAC system, to serve 1,200+ quant finance problems for 2,500+ users.",
+        ],
+        tags: ["PostgreSQL", "Node.js", "Full-Stack"],
+    },
+    {
+        id: "paypal",
+        title: "Software Engineering Intern",
+        organization: "PayPal",
+        date: "May 2023 - August 2023",
+        details: [
+            "Redesigned monetary transactions API with an eventually consistent data strategy, caching transactions in a local database to eliminate multiple mid-tier API calls for 100,000+ daily transactions.",
+            "Improved API performance, reducing latency by ~100ms per API call, leveraging Java, Spring Boot, and SQL.",
+        ],
+        tags: ["Java", "Spring Boot", "SQL", "APIs"],
+    },
+    {
+        id: "jhu-ca",
+        title: "Course Assistant",
+        organization: "Johns Hopkins University",
+        date: "August 2022 - December 2025",
+        details: [
+            "Taught and evaluated 200+ students for 3 classes: AI, Data Structures and Object Oriented Software Engineering.",
+        ],
+        tags: ["Teaching", "CS Education"],
+    },
+];
+
+export const publications: Publication[] = [
+    {
+        id: "deonticbench",
+        authors: [
+            { name: "Dou, Guangyao" },
+            { name: "Brena, Luis" },
+            { name: "Deo, Akhil", isSelf: true },
+            { name: "Jurayj, William" },
+            { name: "Zhang, Jingyu" },
+            { name: "Holzenberger, Nils" },
+            { name: "Van Durme, Benjamin" },
+        ],
+        title: "DeonticBench: A Benchmark for Reasoning over Rules",
+        details: "In: arXiv, 2026.",
+        type: "Preprint",
+        url: "https://arxiv.org/abs/2604.04443",
+        bibtex: `@misc{dou2026deonticbenchbenchmarkreasoningrules,
+      title={DeonticBench: A Benchmark for Reasoning over Rules}, 
+      author={Guangyao Dou and Luis Brena and Akhil Deo and William Jurayj and Jingyu Zhang and Nils Holzenberger and Benjamin Van Durme},
+      year={2026},
+      eprint={2604.04443},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2604.04443}, 
+}`,
+    },
+    {
+        id: "socialnli",
+        authors: [
+            { name: "Deo, Akhil", isSelf: true },
+            { name: "Sanders, Kate" },
+            { name: "Van Durme, Benjamin" },
+        ],
+        title: "SocialNLI: A Dialogue-Centric Social Inference Dataset",
+        details: "In: arXiv, 2025.",
+        type: "Preprint",
+        url: "https://arxiv.org/abs/2510.05458",
+        bibtex: `@misc{deo2025socialnlidialoguecentricsocialinference,
+      title={SocialNLI: A Dialogue-Centric Social Inference Dataset}, 
+      author={Akhil Deo and Kate Sanders and Benjamin Van Durme},
+      year={2025},
+      eprint={2510.05458},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2510.05458}, 
+}`,
+    },
+    {
+        id: "qaagent",
+        authors: [{ name: "Deo, Akhil", isSelf: true }],
+        title: "QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode (Student Abstract)",
+        details: "In: Proceedings of the AAAI Conference on Artificial Intelligence, 2025.",
+        type: "Proceedings Article",
+        url: "https://doi.org/10.1609/aaai.v39i28.35246",
+        bibtex: `@article{Deo_2025, 
+      title={QAagent: A Multiagent System for Unit Test Generation via Natural Language Pseudocode (Student Abstract)}, 
+      volume={39}, 
+      url={https://ojs.aaai.org/index.php/AAAI/article/view/35246},
+      DOI={10.1609/aaai.v39i28.35246},
+      number={28}, 
+      journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+      author={Deo, Akhil},
+      year={2025}, month={Apr.}, 
+      pages={29345-29347} 
+    }`,
+    },
+    {
+        id: "surgisimulate",
+        authors: [
+            { name: "Deo, Akhil", isSelf: true },
+            { name: "Kazanzides, Peter" },
+        ],
+        title: "Feasibility of Mobile Application for Surgical Robot Teleoperation",
+        details: "In: Hamlyn Symposium on Medical Robotics, pp. 121-122, 2023.",
+        type: "Proceedings Article",
+        url: "http://doi.org/10.31256/HSMR2023.63",
+        bibtex: `@inproceedings{Deo2023,
+      series = {HSMR2023},
+      title = {Feasibility of Mobile Application for Surgical Robot Teleoperation},
+      url = {http://dx.doi.org/10.31256/HSMR2023.63},
+      DOI = {10.31256/hsmr2023.63},
+      booktitle = {Proceedings of The 15th Hamlyn Symposium on Medical Robotics 2023},
+      publisher = {The Hamlyn Centre, Imperial College London London, UK},
+      author = {Deo, Akhil and Kazanzides, Peter},
+      year = {2023},
+      month = jun,
+      collection = {HSMR2023}
+    }`,
+    },
+];
+
+export const achievements = [
+    "Pistritto Fellowship",
+    "JHU Machine Learning Best Project Award",
+    "Pava Center for Entrepreneurship Ignite Award",
+    "JHU Whiting School of Engineering Undergraduate Conference Travel Grant",
+    "JHU Student Sponsorship Initiative Award",
+    "Ongoing Venture Prize and Most Creative Use of Twilio at HopHacks Fall 2021",
+];
