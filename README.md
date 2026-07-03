@@ -1,105 +1,29 @@
-# Akhil Deo - IDE-Style Portfolio
+# Akhil Deo Personal Website
 
-A modern, interactive portfolio website styled like VS Code/Cursor IDE, featuring an AI chatbot assistant, interactive terminal, and full dark/light mode support.
+Static HTML/CSS portfolio for [akhildeo.com](https://akhildeo.com). This repo intentionally preserves the visual appearance of the previous deployed site while removing the app framework and client-side JavaScript.
 
-![Portfolio Preview](preview.png)
+## Structure
 
-## ✨ Features
+- `index.html` contains the page content.
+- `styles.css` contains all styling.
+- `profile.png` and `favicon.svg` are the only assets.
+- `vercel.json` keeps Vercel static hosting simple.
+- `.vercel_static/` is a generated Vercel output folder containing only the four deployable static files.
+- `docs/pr-evidence/` contains review evidence images for the PR and is excluded from Vercel deploys.
+- `evidence/` is ignored local verification output for screenshots and browser checks.
 
-- **IDE-Style Interface** - Full VS Code/Cursor-inspired layout with:
-  - File explorer sidebar
-  - Tabbed content panels
-  - Resizable panels
-  - Status bar with git info
-
-- **AI Chat Assistant** - Right-panel chatbot that answers questions about me
-  - Supports Modal serverless inference (optional)
-  - Falls back to smart local responses
-
-- **Interactive Terminal** - Type commands like `whoami`, `ls projects`, `neofetch`
-
-- **Command Palette** - Press `Cmd+K` for quick navigation
-
-- **Dark/Light Mode** - Toggle via status bar or command palette
-
-## 🚀 Getting Started
+## Local Preview
 
 ```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
+python3 -m http.server 3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+Open `http://localhost:3000`.
 
-## ⌨️ Keyboard Shortcuts
+## Deployment
 
-| Shortcut | Action |
-|----------|--------|
-| `Cmd+K` | Open command palette |
-| `Cmd+B` | Toggle sidebar |
-| `Cmd+I` | Toggle AI chat panel |
-| `Ctrl+\`` | Toggle terminal |
+The Vercel project for `akhildeo.com` is `me` under the `akhildeos-projects` scope.
 
-## 🤖 AI Chatbot Setup (Optional)
+Do not deploy production from a local branch unless explicitly requested. Open a PR and verify screenshots first.
 
-The chatbot works out of the box with smart local responses. For real LLM inference:
-
-1. Install Modal: `pip install modal && modal setup`
-2. Deploy: `cd modal_inference && modal deploy app.py`
-3. Add to `.env.local`: `MODAL_ENDPOINT=https://your-url.modal.run`
-
-See [modal_inference/README.md](modal_inference/README.md) for details.
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS + shadcn/ui
-- **Components**: Radix UI primitives
-- **Icons**: Lucide React
-- **Theming**: next-themes
-- **AI**: Modal serverless (optional)
-
-## 📁 Project Structure
-
-```
-src/
-├── app/
-│   ├── api/chat/      # AI chat API route
-│   ├── globals.css    # Global styles
-│   ├── layout.tsx     # Root layout with providers
-│   └── page.tsx       # Main page
-├── components/
-│   ├── content/       # Content panels (About, Projects, etc.)
-│   ├── ide/           # IDE components (Sidebar, Tabs, Terminal, etc.)
-│   ├── providers/     # Theme provider
-│   └── ui/            # shadcn/ui components
-└── lib/
-    ├── data.ts        # Portfolio content data
-    └── utils.ts       # Utility functions
-```
-
-## 🚢 Deployment
-
-Deploy easily on Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/akhildeo/personal-website-v2)
-
-Or build for production:
-
-```bash
-npm run build
-npm start
-```
-
-## 📝 Customization
-
-1. **Update content**: Edit `src/lib/data.ts` with your info
-2. **Change theme colors**: Modify CSS variables in `src/app/globals.css`
-3. **Add sections**: Create new content components in `src/components/content/`
-
-## 📄 License
-
-MIT License - feel free to use this as a template for your own portfolio!
+The Vercel build command only copies `index.html`, `styles.css`, `profile.png`, and `favicon.svg` into `.vercel_static/` so previews do not use the old Create React App project setting.

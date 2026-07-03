@@ -1,0 +1,70 @@
+[
+  {
+    "name": "desktop-viewport.png",
+    "baseSize": [
+      1280,
+      900
+    ],
+    "afterSize": [
+      1280,
+      900
+    ],
+    "canvas": [
+      1280,
+      900
+    ],
+    "mismatch": 7562,
+    "mismatchPct": 0.656424
+  },
+  {
+    "name": "mobile-viewport.png",
+    "baseSize": [
+      390,
+      844
+    ],
+    "afterSize": [
+      390,
+      844
+    ],
+    "canvas": [
+      390,
+      844
+    ],
+    "mismatch": 5028,
+    "mismatchPct": 1.527525
+  },
+  {
+    "name": "desktop-full.png",
+    "baseSize": [
+      1280,
+      3171
+    ],
+    "afterSize": [
+      1280,
+      3171
+    ],
+    "canvas": [
+      1280,
+      3171
+    ],
+    "mismatch": 52483,
+    "mismatchPct": 1.293041
+  },
+  {
+    "name": "mobile-full.png",
+    "baseSize": [
+      390,
+      5599
+    ],
+    "afterSize": [
+      390,
+      5599
+    ],
+    "canvas": [
+      390,
+      5599
+    ],
+    "mismatch": 52258,
+    "mismatchPct": 2.393193
+  }
+]
