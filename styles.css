@@ -1,0 +1,208 @@
+:root {
+  color-scheme: light;
+  --bg: #f8f6f0;
+  --ink: #1d1b17;
+  --muted: #665f52;
+  --rule: #d8d0c1;
+  --accent: #0f6b68;
+  --accent-dark: #0a4a48;
+  --paper: #fffdf7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: var(--accent-dark);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+.page {
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 44px 0 72px;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 32px;
+  align-items: end;
+  padding-bottom: 30px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent-dark);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: clamp(3rem, 11vw, 6.2rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin: 0 0 18px;
+  font-size: 1.42rem;
+  line-height: 1.15;
+}
+
+h3 {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.lede {
+  max-width: 670px;
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 1.18rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.88rem;
+}
+
+.portrait {
+  width: 150px;
+  height: 200px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  object-fit: cover;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 28px;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+section > h2 {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+}
+
+section > :not(h2) {
+  grid-column: 2;
+}
+
+.entry {
+  margin-bottom: 26px;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+ul {
+  margin: 10px 0 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 6px;
+}
+
+.compact-list {
+  margin-top: 0;
+}
+
+details {
+  margin-top: 8px;
+}
+
+summary {
+  color: var(--accent-dark);
+  cursor: pointer;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.82rem;
+}
+
+pre {
+  overflow-x: auto;
+  margin: 10px 0 0;
+  padding: 14px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: #2f2a23;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 16px;
+  }
+
+  .page {
+    width: min(100% - 24px, 920px);
+    padding-top: 24px;
+  }
+
+  .intro,
+  section {
+    display: block;
+  }
+
+  .portrait {
+    margin-top: 24px;
+    width: 120px;
+    height: 160px;
+  }
+
+  section > h2 {
+    position: static;
+  }
+
+  section > :not(h2) {
+    grid-column: auto;
+  }
+}
