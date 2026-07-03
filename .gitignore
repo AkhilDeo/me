@@ -10,6 +10,9 @@
 # vercel
 .vercel
 
+# local verification artifacts
+evidence/
+
 __pycache__
 *.pyc
 *.pyo
