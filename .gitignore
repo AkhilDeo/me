@@ -9,6 +9,7 @@
 
 # vercel
 .vercel
+.vercel_static/
 
 # local verification artifacts
 evidence/
