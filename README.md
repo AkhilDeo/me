@@ -9,7 +9,10 @@ Static HTML/CSS portfolio for [akhildeo.com](https://akhildeo.com). This repo in
 - `profile.png` and `favicon.svg` are the only assets.
 - `vercel.json` keeps Vercel static hosting simple.
 - `.vercel_static/` is a generated Vercel output folder containing only the four deployable static files.
-- `docs/pr-evidence/` contains review evidence images for the PR and is excluded from Vercel deploys.
+- PR review evidence is stored in the private Cloudflare R2 bucket `shipyard-evidence-private` (requires Cloudflare account access):
+  - [desktop-viewport-side-by-side.png](https://dash.cloudflare.com/521463c90a7b9440b87fcda5c18e4484/r2/default/buckets/shipyard-evidence-private/objects/me%2F52cf5ea%2F2026-07-03-style-preservation%2Fdesktop-viewport-side-by-side.png/details)
+  - [mobile-viewport-side-by-side.png](https://dash.cloudflare.com/521463c90a7b9440b87fcda5c18e4484/r2/default/buckets/shipyard-evidence-private/objects/me%2F52cf5ea%2F2026-07-03-style-preservation%2Fmobile-viewport-side-by-side.png/details)
+  - [pixelmatch-results.json](https://dash.cloudflare.com/521463c90a7b9440b87fcda5c18e4484/r2/default/buckets/shipyard-evidence-private/objects/me%2F52cf5ea%2F2026-07-03-style-preservation%2Fpixelmatch-results.json/details)
 - `evidence/` is ignored local verification output for screenshots and browser checks.
 
 ## Local Preview
