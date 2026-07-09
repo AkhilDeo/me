@@ -307,6 +307,20 @@
             localStorage.setItem("theme", next);
           } catch (e) {}
         });
+
+        // Until the user makes an explicit choice, keep following the system default live.
+        try {
+          var media = window.matchMedia("(prefers-color-scheme: dark)");
+          var onSystemChange = function (e) {
+            if (localStorage.getItem("theme")) return;
+            document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
+          };
+          if (media.addEventListener) {
+            media.addEventListener("change", onSystemChange);
+          } else if (media.addListener) {
+            media.addListener(onSystemChange);
+          }
+        } catch (e) {}
       })();
     </script>
   </body>
