@@ -1,5 +1,12 @@
 # Lessons
 
+## 2026-07-09
+- Date: 2026-07-09
+- Correction received: User asked for a darioamodei.com-style light/dark toggle "without moving away from HTML/CSS," which tensions with the standing "avoid JavaScript unless explicitly asked" rule.
+- Root cause: A proper theme switch with persistence and no-flash load genuinely needs a little JS; "without moving away from HTML/CSS" means "keep it static, no framework/build," not "zero JS."
+- New preventive rule: When a requested feature requires minimal JS, keep it to a small inline vanilla script (no framework, no build), theme via CSS custom properties, preserve the default (light) appearance pixel-for-pixel, and update the README's "no JavaScript" claim so docs stay accurate.
+- Where applied: `index.html` inline theme scripts + toggle button, `styles.css` CSS variables and `.theme-toggle`, README "Theme" section.
+
 ## 2026-07-03
 - Date: 2026-07-03
 - Correction received: Static conversion must preserve the previous visual style exactly, and production must not be deployed unless explicitly requested.
