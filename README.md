@@ -6,9 +6,9 @@ Static HTML/CSS portfolio for [akhildeo.com](https://akhildeo.com). This repo in
 
 - `index.html` contains the page content.
 - `styles.css` contains all styling.
-- `profile.png` and `favicon.svg` are the only assets.
+- `favicon.svg` is the only asset.
 - `vercel.json` keeps Vercel static hosting simple.
-- `.vercel_static/` is a generated Vercel output folder containing only the four deployable static files.
+- `.vercel_static/` is a generated Vercel output folder containing only the deployable static files.
 - PR review evidence is stored in the private Cloudflare R2 bucket `shipyard-evidence-private` (requires Cloudflare account access):
   - [desktop-viewport-side-by-side.png](https://dash.cloudflare.com/521463c90a7b9440b87fcda5c18e4484/r2/default/buckets/shipyard-evidence-private/objects/me%2F52cf5ea%2F2026-07-03-style-preservation%2Fdesktop-viewport-side-by-side.png/details)
   - [mobile-viewport-side-by-side.png](https://dash.cloudflare.com/521463c90a7b9440b87fcda5c18e4484/r2/default/buckets/shipyard-evidence-private/objects/me%2F52cf5ea%2F2026-07-03-style-preservation%2Fmobile-viewport-side-by-side.png/details)
@@ -29,4 +29,4 @@ The Vercel project for `akhildeo.com` is `me` under the `akhildeos-projects` sco
 
 Do not deploy production from a local branch unless explicitly requested. Open a PR and verify screenshots first.
 
-The Vercel build command only copies `index.html`, `styles.css`, `profile.png`, and `favicon.svg` into `.vercel_static/` so previews do not use the old Create React App project setting.
+The Vercel build command only copies `index.html`, `styles.css`, and `favicon.svg` into `.vercel_static/` so previews do not use the old Create React App project setting.

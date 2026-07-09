@@ -2,6 +2,6 @@
   "version": 2,
   "cleanUrls": true,
   "installCommand": null,
-  "buildCommand": "rm -rf .vercel_static && mkdir .vercel_static && cp index.html styles.css profile.png favicon.svg .vercel_static/",
+  "buildCommand": "rm -rf .vercel_static && mkdir .vercel_static && cp index.html styles.css favicon.svg .vercel_static/",
   "outputDirectory": ".vercel_static"
 }
