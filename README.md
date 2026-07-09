@@ -1,6 +1,10 @@
 # Akhil Deo Personal Website
 
-Static HTML/CSS portfolio for [akhildeo.com](https://akhildeo.com). This repo intentionally preserves the visual appearance of the previous deployed site while removing the app framework and client-side JavaScript.
+Static HTML/CSS portfolio for [akhildeo.com](https://akhildeo.com). This repo intentionally preserves the visual appearance of the previous deployed site while removing the app framework. The only client-side JavaScript is a tiny inline theme toggle (light/dark mode); there is no build step or framework.
+
+## Theme
+
+A light/dark mode toggle sits in the top-right corner. Colors are driven by CSS custom properties in `styles.css` (`:root` for light, `:root[data-theme="dark"]` for dark). On first visit the theme follows the OS `prefers-color-scheme`; once the user clicks the toggle, their choice is saved to `localStorage` and takes precedence. An inline `<head>` script applies the theme before first paint to avoid a flash.
 
 ## Structure
 
